@@ -1,3 +1,5 @@
+#ifndef B_TREE_01_H
+#define B_TREE_01_H
 
 typedef struct _b_tree_node
 {
@@ -19,3 +21,5 @@ void in_order(b_tree_node *node);
 void pre_order(b_tree_node *node);
 
 void post_order(b_tree_node *node);
+
+#endif

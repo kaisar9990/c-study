@@ -1,6 +1,3 @@
-#ifndef B_TREE_01_H
-#define B_TREE_01_H
-
 #include <stdlib.h>
 #include <stdio.h>
 #include "b_tree_01.h"
@@ -61,5 +58,3 @@ void post_order(b_tree_node *node)
     post_order(node->r_child);
     visit(node);
 }
-
-#endif
