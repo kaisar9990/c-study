@@ -97,3 +97,41 @@ void merge_sort(int nums[], int start, int end)
     merge_sort(nums, mid + 1, end);
     merge(nums, start, mid, end);
 }
+
+void heapify(int nums[], int i, int size)
+{
+    int left = i * 2 + 1;
+    int right = i * 2 + 2;
+    int large = i;
+    if (left < size && nums[large] < nums[left])
+    {
+        large = left;
+    }
+    if (right < size && nums[large] < nums[right])
+    {
+        large = right;
+    }
+    if (i == large)
+    {
+        return;
+    }
+    int tmp = nums[i];
+    nums[i] = nums[large];
+    nums[large] = tmp;
+    heapify(nums, large, size);
+}
+
+void heap_sort(int nums[], int size)
+{
+    for (int last_n = size / 2 - 1; last_n >= 0; last_n--)
+    {
+        heapify(nums, last_n, size);
+    }
+    for (int i = size; i > 0; i--)
+    {
+        int tmp = nums[i - 1];
+        nums[i - 1] = nums[0];
+        nums[0] = tmp;
+        heapify(nums, 0, i - 1);
+    }
+}
